@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Magic Studio</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <h1>MAKE YOUR OWN PICTURE</h1>
+    <h3>Choose picture and try filters on it!</h3>
+
+    <div class="filter-wrap">
+      <div class="can-wrap">
+        <canvas id="can"></canvas>
+      </div>
+      <div class="filters">
+        <!-- FILTERS -->
+        <input
+          class="button"
+          type="button"
+          value="Make Grayscale"
+          onclick="makeGray()"
+        />
+        <input
+          class="button"
+          type="button"
+          value="Make Red"
+          onclick="makeRed()"
+        />
+        <input
+          class="button"
+          type="button"
+          value="Make Rainbow"
+          onclick="makeRainbow()"
+        />
+        <input
+          class="button"
+          type="button"
+          value="Make Sepia"
+          onclick="makeSepia()"
+        />
+        <input
+          class="button"
+          type="button"
+          value="Make 3 colored verticals"
+          onclick="makeColoredVerticals()"
+        />
+        <p>
+          <input
+            type="range"
+            id="sizeInput"
+            min="1"
+            max="100"
+            value="1"
+            oninput="amountDark(this.value)"
+          />
+          <output id="sizeOutput">1</output>
+        </p>
+        <input
+          class="button"
+          type="button"
+          value="Make Darker"
+          onclick="makeDarker()"
+        />
+
+        <p>Filter of any color:</p>
+        <input
+          class="button"
+          type="color"
+          value="#FF00FF"
+          id="clr"
+          onchange="doColor()"
+        />
+        <input
+          class="button"
+          type="button"
+          value="Apply color"
+          onclick="makeAnyColor()"
+        />
+      </div>
+      <div class="download-wrap">
+        <p>
+          Weight:<output id="WidthOutput">0</output> Height:
+          <output id="HeightOutput">0</output>
+        </p>
+        <p>
+          <input
+            class="button"
+            type="file"
+            multiple="false"
+            accept="image/*"
+            id="finput"
+            onchange="uploadImage()"
+          />
+        </p>
+        <p>
+          <input class="button" type="button" value="Reset" onclick="reset()" />
+        </p>
+      </div>
+    </div>
+
+    <!-- Converter HEX to RGB -->
+    <h2>Hex To Rgb Converter</h2>
+
+    <div class="color-box" id="color-box">
+      <form>
+        <label>From HEX</label>
+        <input
+          type="text"
+          value="#FF00FF"
+          id="hex-color"
+          placeholder="Hex #FFFFFF"
+          onchange="makeColorBox()"
+        />
+        <button class="button" type="button" id="convert" onclick="hex2rgb()">
+          Convert
+        </button>
+        <label>To RGB</label>
+        <input type="text" id="rgb-color" placeholder="Rgb (255,255,255)" />
+      </form>
+    </div>
+  </body>
+</html>
